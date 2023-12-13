@@ -137,6 +137,6 @@ volumes:
         driver: local
 
 networks:
-    frontend:
+    elastic:
         # Use a custom driver
         driver: custom-driver-1
