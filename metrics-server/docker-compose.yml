@@ -99,7 +99,7 @@ services:
             - xpack.security.transport.ssl.key=certs/es01/es01.key
             - xpack.security.transport.ssl.certificate=certs/es01/es01.crt
             - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
-            - xpack.security.transport.ssl.verification_mode=certificate
+            - xpack.security.transport.ssl.verification_mode=none
             - xpack.license.self_generated.type=${LICENSE}
         mem_limit: ${MEM_LIMIT}
         ulimits:
@@ -144,6 +144,7 @@ services:
             - kibana
         ports:
             - 3000:3000
+        mem_limit: ${MEM_LIMIT}
         volumes:
             - ./grafana-data:/usr/share/grafana/data
 
