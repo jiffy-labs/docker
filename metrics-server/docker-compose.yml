@@ -218,6 +218,6 @@ services:
         volumes:
             - ./grafana-data:/usr/share/grafana/data
 
-volume:
+volumes:
     certs:
         driver: local
