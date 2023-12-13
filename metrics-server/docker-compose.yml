@@ -211,6 +211,8 @@ services:
             retries: 120
     grafana:
         image: grafana/grafana
+        depends_on:
+            - es03
         ports:
             - 3000:3000
         volumes:
