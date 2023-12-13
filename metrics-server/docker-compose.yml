@@ -3,7 +3,6 @@ version: "2.2"
 services:
     setup:
         image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-        networks: elastic
         volumes:
             - certs:/usr/share/elasticsearch/config/certs
         user: "0"
@@ -68,7 +67,6 @@ services:
             setup:
                 condition: service_healthy
         image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-        networks: elastic
         volumes:
             - certs:/usr/share/elasticsearch/config/certs
             - esdata01:/usr/share/elasticsearch/data
@@ -97,7 +95,6 @@ services:
             es01:
                 condition: service_healthy
         image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
-        networks: elastic
         volumes:
             - certs:/usr/share/kibana/config/certs
             - kibanadata:/usr/share/kibana/data
@@ -135,8 +132,3 @@ volumes:
         driver: local
     kibanadata:
         driver: local
-
-networks:
-    elastic:
-        # Use a custom driver
-        driver: custom-driver-1
