@@ -113,7 +113,6 @@ services:
             retries: 120
     grafana:
         image: grafana/grafana
-        networks: elastic
         depends_on:
             - kibana
         ports:
